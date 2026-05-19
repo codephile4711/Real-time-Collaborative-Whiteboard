@@ -53,6 +53,32 @@ npm run dev
 
 ---
 
+## 📦 Production Build & Deployment
+
+To deploy the application in a production environment, follow these steps:
+
+### 1. Build the Frontend
+Compile the React application into optimized static assets:
+```bash
+npm run build
+```
+This command generates a `dist/` folder containing the optimized frontend code.
+
+### 2. Configure Production Environment
+Ensure your `.env` file is configured correctly for your production server:
+```env
+PORT=80
+CLIENT_ORIGIN=https://your-domain.com
+```
+
+### 3. Start the Production Server
+Start the Node.js server in production mode. This will serve the static files from the `dist/` folder and start the WebSocket synchronization server simultaneously:
+```bash
+npm start
+```
+*Note: The `start` script uses `cross-env NODE_ENV=production` automatically to ensure maximum security and performance.*
+
+---
 
 ## 🔒 Security Measures Implemented
 * **DDoS & Rate Limiting:** API endpoints are protected using `express-rate-limit` and maximum payload sizes.
@@ -60,4 +86,7 @@ npm run dev
 * **XSS & Prototype Pollution Prevention:** Strict schema validation during JSON imports and image URL sanitization.
 * **Path Traversal Protection:** Board IDs are strictly sanitized.
 
+---
 
+## 📝 License
+This project is for educational and portfolio purposes.
